@@ -10,6 +10,23 @@
 	display: block;
 }
 
+.label {
+	display: flex;
+	flex-shrink: 0;
+	justify-content: center;
+	align-items: center;
+	box-sizing: border-box;
+	width: 124px;
+	height: 31px;
+	text-align: center;
+	border-right: 1px solid #000000;
+	cursor: pointer;
+}
+
+.label:hover {
+	background: #ffedab;
+}
+
 .input {
 	position: absolute;
 	width: 0;
@@ -19,31 +36,17 @@
 	opacity: 0;
 }
 
-.label {
-	display: flex;
-	flex-shrink: 0;
-	justify-content: center;
-	align-items: center;
-	box-sizing: border-box;
-	width: 124px;
-	height: 35px;
-	text-align: center;
-	border-right: 1px solid #000000;
-	cursor: pointer;
-}
-
 /* Убираем бордер у последнего в radiogroup, чтобы не было двойного бордера */
 
 .item:last-child .label {
 	border: none;
 }
 
-.label:hover,
-.item[data-checked='true'] .label:hover {
+.item[data-checked='true'] .label {
 	background: var(--gold, #ffc802);
 }
 
-.item[data-checked='true'] .label {
+.item[data-checked='true'] .label:hover {
 	background: var(--gold, #ffc802);
 }
 
@@ -51,4 +54,5 @@
 	display: flex;
 	flex-direction: column;
 	row-gap: 4px;
+	margin-top: 50px;
 }
