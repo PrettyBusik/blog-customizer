@@ -18,6 +18,7 @@ import {
 import { Text } from 'components/text';
 import { RadioGroup } from 'components/radio-group';
 import { Separator } from 'components/separator';
+import clsx from 'clsx';
 
 type TAppState = {
 	appState: ArticleStateType;
@@ -55,12 +56,10 @@ export const ArticleParamsForm = ({ appState, setAppState }: TAppState) => {
 				setIsOpened={(val: boolean) => setIsOpened(val)}
 			/>
 			<aside
-				className={`${styles.container} ${
-					isOpened ? styles.container_open : styles.container
-				}`}
+				className={clsx(styles.container, isOpened && styles.container_open)}
 				ref={ref}>
 				<form
-					className={styles.form}
+					className={clsx(styles.form)}
 					onSubmit={handleSubmit}
 					onReset={handelReset}>
 					<Text
@@ -103,7 +102,7 @@ export const ArticleParamsForm = ({ appState, setAppState }: TAppState) => {
 						title='Ширина контента'
 						onChange={changeSettings('contentWidth')}
 					/>
-					<div className={styles.bottomContainer}>
+					<div className={clsx(styles.bottomContainer)}>
 						<Button title='Сбросить' type='reset' />
 						<Button title='Применить' type='submit' />
 					</div>
